@@ -1,22 +1,33 @@
 package test;
 
-import common.TestBase;
-import org.junit.Assert;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import Utils.PageElements;
+import Utils.BaseTest;
+import Utils.param;
+import org.testng.Assert;
+import org.testng.annotations.*;
 import page.LoginPage;
 
-public class LoginPageTest extends TestBase {
-    LoginPage login;
-    @DataProvider(name = "data")
-    public Object[][] testLogin()  {
-        return new Object[][]{{"Admin", "admin123"}};
-    }
-    @Test(dataProvider = "data")
-    public void loginTest(String username, String password) throws InterruptedException {
-        login = new LoginPage();
-        login.login(username,password);
-        Assert.assertTrue(login.isLogoDisplay());
+import java.io.IOException;
+import java.util.Properties;
 
+public class LoginPageTest extends BaseTest {
+    PageElements pageElements;
+    LoginPage loginPage;
+
+    //@Test(dataProvider = "data", dataProviderClass = param.class) String username, String password
+    @Test
+    public void testLoginWithAccount() throws IOException {
+        /*pageElements = new PageElements(driver);
+        driver.get("https://opensource-demo.orangehrmlive.com/");
+        pageElements.enterUsername(username);
+        pageElements.enterPassword(password);
+        pageElements.clickLoginButton();
+        Assert.assertEquals(pageElements.getTitleHRM(),"OrangeHRM");*/
+        //pageElements = new PageElements(driver);
+        driver.get("https://opensource-demo.orangehrmlive.com/");
+        Properties obj = loadPropertiesFile();
+        loginPage = new LoginPage();
+        loginPage.login(obj.getProperty("username_Admin"), obj.getProperty("password_Admin"));
+        Assert.assertEquals(pageElements.getTitleHRM(),"OrangeHRM");
     }
 }

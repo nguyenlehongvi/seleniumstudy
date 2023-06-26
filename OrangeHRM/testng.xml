@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="D:/Training_Selelium/seleniumstudy/OrangeHRM">
+        <classes>
+            <class name="test.GetAccountNameTest">
+                <methods>
+                    <include name="getAccountName"/>
+                </methods>
+            </class>
+            <class name="test.LoginPageTest">
+                <methods>
+                    <include name="testLoginWithAccount"/>
+                </methods>
+            </class>
+            <class name="test.NavigateAdminPageTest">
+                <methods>
+                    <include name="navToAdmin"/>
+                </methods>
+            </class>
+            <class name="test.NavigateToOrangeHRMTest">
+                <methods>
+                    <include name="testOpenBrowserAndNavigate"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

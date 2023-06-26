@@ -1,4 +1,5 @@
 package Utils;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -6,6 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -33,14 +35,16 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
+
     public static String getCurrentUrl() {
         return driver.getCurrentUrl();
     }
 
     public static Properties loadPropertiesFile() throws IOException {
+        FileInputStream objfile = new FileInputStream("D:/Training_Selelium/seleniumstudy/OrangeHRM/src/test/java/org/example/config.properties");
         Properties obj = new Properties();
-        FileInputStream objfile = new FileInputStream(System.getProperty("D:\\Training Selelium\\seleniumstudy\\OrangeHRM\\src\\test\\java\\org\\example\\config.properties"));
         obj.load(objfile);
         return obj;
     }
+
 }

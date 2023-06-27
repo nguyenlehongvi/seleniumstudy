@@ -34,7 +34,7 @@ public class LoginPageTest extends BaseTest {
         // take screenshot
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         //String screenshotBase64 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
-        FileUtils.copyFile(screenshot, new File("D:/Training_Selelium/seleniumstudy/OrangeHRM/src/test/java/org/example/"+driver.getTitle()+"-"+".png"));
+        FileUtils.copyFile(screenshot, new File("D:/Training_Selelium/seleniumstudy/OrangeHRM/src/test/java/org/example/"+driver.getTitle()+".png"));
 
         pageElements.clickLoginButton();
         Assert.assertEquals(pageElements.getTitleHRM(),"OrangeHRM");

@@ -1,6 +1,8 @@
 package Utils;
 
 import java.time.Duration;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -51,6 +53,13 @@ public class PageElements {
     public void navToAdminButton() {
         WebElement accountNameLabel = wait.until(ExpectedConditions.visibilityOfElementLocated(elementAdminPage));
         accountNameLabel.click();
+    }
+
+    public void acceptAlert() {
+        WebDriverWait wait_alert = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait_alert.until(ExpectedConditions.alertIsPresent());
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
     }
 
     public String verifyAdminPage() {

@@ -18,6 +18,8 @@ public class PageElements {
     private By btnLogin = By.xpath("//button[@type='submit']");
     private By lblAccountName = By.xpath("//p[@class='oxd-userdropdown-name']");
     private By elementAdminPage = By.xpath("//span[text()='Admin']");
+    private By color = (By.xpath("//div[@class='oxd-grid-item oxd-grid-item--gutters']//div[@class='oxd-color-input-preview']"));
+
 
     public PageElements(WebDriver driver) {
         this.driver = driver;
@@ -64,5 +66,8 @@ public class PageElements {
 
     public String verifyAdminPage() {
         return driver.getCurrentUrl();
+    }
+    public void clickColor (){
+        driver.findElement(color).click();
     }
 }

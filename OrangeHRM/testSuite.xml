@@ -1,0 +1,7 @@
+<suite name="OrangeHRM">
+    <test name="GroupTest">
+        <classes>
+            <class name="test.GroupTest"/>
+        </classes>
+    </test>
+</suite>
